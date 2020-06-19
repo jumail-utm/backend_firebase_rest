@@ -28,4 +28,4 @@ exports.functionsTimeOut = functions.runWith({
     timeoutSeconds: 300
 })
 
-// exports.setupdb = functions.https.onRequest(require('../.ignore/setup_database'))
+exports.setupdb = functions.https.onRequest(require('./setup_database'))

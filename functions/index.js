@@ -1,9 +1,9 @@
 const functions = require("firebase-functions");
+const express = require("express");
 
-exports.hello = functions.https.onRequest((req, res) => {
-    res.json({ message: "Hello World from Firebase function" });
-});
+const app = express();
 
-exports.hi = functions.https.onRequest((req, res) => {
-    res.json({ message: "Hi there. Greeting from Firebase" });
-});
+app.get('/', (req, res, next) => res.json({ message: 'Firebase function service is working' }));
+app.get('/todos', (req, res, next) => res.json({ message: 'Get a list of todos' }));
+
+exports.api = functions.https.onRequest(app);

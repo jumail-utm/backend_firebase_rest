@@ -8,7 +8,7 @@
 
 _Notes:_
 
-If clone this project from my github repo, change the default project id with your own in `.firebaserc`
+If you clone this project from my github repo, change the default project id with your own in `.firebaserc`
 
 ```json
 {

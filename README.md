@@ -1,5 +1,3 @@
-# RESTful API Service using Node JS and Firebase
-
 ### [Setting Up Local Firebase for Development](pages/firebase-local.md)
 
 ### [Developing REST API Service on Firebase](pages/firebase-rest.md)

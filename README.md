@@ -1,6 +1,14 @@
-# Developing RESTful API Server with Node JS and Firebase
+# RESTful API Service using Node JS and Firebase
 
-Change the default project with your own project in `.firebaserc`
+### [Setting Up Local Firebase for Development](pages/firebase-local.md)
+
+### [Developing REST API Service on Firebase](pages/firebase-rest.md)
+
+### [Deploying Project to Firebase](pages/firebase-deploy.md)
+
+_Notes:_
+
+If clone this project from my github repo, change the default project id with your own in `.firebaserc`
 
 ```json
 {

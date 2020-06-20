@@ -1,0 +1,45 @@
+##############################################################
+# Mobile Application Programming (SCSJ3623)
+# Semester 2, 2019/2020
+##############################################################
+
+# REST API Server on Local Firebase
+# @baseUrl = http://localhost:5001/jumail-backend-firebase-rest/us-central1/api
+
+# REST API Server on Live Firebase
+@baseUrl = https://us-central1-jumail-backend-firebase-rest.cloudfunctions.net/api
+
+### Getting the list of todos
+GET {{baseUrl}}/todos
+
+###  Getting a todo of given id
+GET {{baseUrl}}/todos/HXHpok2n641QmTJEvREm
+
+###  Create a new todo
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+    "title": "Important Todos of Today",
+    "completed" : false
+}
+
+### Update the status of a given todo (whether is completed or not)
+PATCH {{baseUrl}}/todos/HXHpok2n641QmTJEvREm
+Content-Type: application/json
+
+{
+    "completed":true
+}
+
+
+### Replace the entire fields of a given todo
+PUT {{baseUrl}}/todos/H7kv4nPyQKXodwAui0qu
+Content-Type: application/json
+
+{
+    "completed": true
+}
+
+### Deleting a given todo
+DELETE {{baseUrl}}/todos/H7kv4nPyQKXodwAui0qu

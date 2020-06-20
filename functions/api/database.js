@@ -28,24 +28,54 @@ class Database {
     // Note that, each firestore function call is asynchronous.
     //  Thus, you want to use the 'await' keyword at the caller.
 
-    create(collection, document) {
-        return this.firestore.collection(collection).add(document)
+    async create(collection, document) {
+        const result = await this.firestore.collection(collection).add(document)
+        document.id = result.id
+        return document
     }
 
-    getList(collection) {
-        return this.firestore.collection(collection).get()
+    async getList(collection) {
+        const result = await this.firestore.collection(collection).get()
+
+        const list = []
+        result.forEach((doc) => {
+            const data = doc.data()
+            data.id = doc.id
+            list.push(data)
+        })
+        return list.length ? list : null
     }
 
-    get(collection, id) {
-        return this.firestore.collection(collection).doc(id).get()
+    async get(collection, id) {
+        const result = await this.firestore.collection(collection).doc(id).get()
+        if (!result.exists) return null  // Record not found
+
+        const doc = result.data()
+        doc.id = result.id
+        return doc
     }
 
-    set(collection, id, document) {
-        return this.firestore.collection(collection).doc(id).set(document);
+    async set(collection, id, document) {
+        const doc = this.firestore.collection(collection).doc(id)
+        const result = await doc.get()
+
+        if (!result.exists) return null  // Record not found
+
+        await doc.set(document)
+
+        document.id = id
+        return document
     }
 
-    delete(collection, id) {
-        return this.firestore.collection(collection).doc(id).delete()
+    async delete(collection, id) {
+        const doc = this.firestore.collection(collection).doc(id)
+        const result = await doc.get()
+
+        if (!result.exists) return null // Record not found
+
+        await doc.delete()
+
+        return { id }
     }
 }
 

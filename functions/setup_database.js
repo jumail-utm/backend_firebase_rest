@@ -1,4 +1,4 @@
-const db = require('../functions/api/database')
+const db = require('./api/database')
 
 async function setupDatabase(req, res, next) {
     // To delete all the collections

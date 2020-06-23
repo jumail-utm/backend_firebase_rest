@@ -28,7 +28,7 @@ Once completed, verify the deployment from the [Firebase console](https://consol
 
 - Test with REST Client to test the API server
 
-  - [Sample REST requests](https://github.com/jumail-utm/backend_firebase_rest/dev/rest_client/requests.rest)
+  - [Sample REST requests](https://github.com/jumail-utm/backend_firebase_rest/blob/master/dev/rest_client/requests.rest)
 
 - Test with Flutter app
   - [Sample project](https://github.com/jumail-utm/flutter_todo_rest)
